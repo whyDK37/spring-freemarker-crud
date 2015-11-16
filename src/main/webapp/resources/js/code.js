@@ -10,6 +10,7 @@ var crud = new (function() {
         _cfg = $.extend(_cfg, opts);
         //bind events on init
         $(document).ready(function() {
+            _listperson();
             //bind events
             _bindEvents();
         });
@@ -44,6 +45,14 @@ var crud = new (function() {
         if ($('#editWithErrors').val() == "true") {
             $modal.modal('show');
         }
+    }
+
+    function _listperson(){
+        var listdom = $("#personList");
+        $.get("/persons",function(data){
+            listdom.empty();
+            listdom.html(data);
+        });
     }
 
     var copyValuesForChange = function(source) {

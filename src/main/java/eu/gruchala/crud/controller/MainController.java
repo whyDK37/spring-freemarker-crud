@@ -47,6 +47,11 @@ public class MainController {
         return new Person();
     }
 
+    @RequestMapping(value = "/persons")
+    public String getPersons() {
+        return "/macros/personList";
+    }
+
     @ModelAttribute("editablePerson")
     public Person getEditablePerson() {
         return new Person();
